@@ -10,6 +10,8 @@ public class PostInMemoryRepository : IPostRepository
     public PostInMemoryRepository()
     {
         this.posts = new List<Post>();
+
+        createData();
     }
 
 
@@ -67,5 +69,16 @@ public class PostInMemoryRepository : IPostRepository
     public IQueryable<Post> GetManyAsync()
     {
         return posts.AsQueryable();
+    }
+
+    public void createData()
+    {
+        Post post1 = new Post(1, "Comment", "Hi!!", 1);
+        Post post2 = new Post(2, "Comment", "Hi!!", 2);
+        Post post3 = new Post(3, "Comment", "Hi!!", 3);
+
+        posts.Add(post1);
+        posts.Add(post2);
+        posts.Add(post3);
     }
 }
