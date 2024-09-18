@@ -14,4 +14,9 @@ public class Post
                 Body = body;
                 UserId = userId;
         }
+
+        public override string ToString()
+        {
+                return "Post title: " + Title + ", body: " + Body;
+        }
 }
