@@ -36,13 +36,9 @@ public class ManagePostView()
                 {
                     await _createPostView.CreatPostAsync();
                 }
-                else if (response.Equals("list"))
+                else if (response.Equals("list", StringComparison.OrdinalIgnoreCase))
                 {
-                    _listPostView.ListAllPostsAsync();
-                }
-                else
-                {
-                    run = false;
+                    await _listPostView.ListAllPostsAsync();
                 }
             }
         }
