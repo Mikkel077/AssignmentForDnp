@@ -24,7 +24,7 @@ public class DeletePostView(
                     await postRepository.DeleteAsync(postId);
                     Console.WriteLine("Post deleted with id: " + postId + " Was deleted");
                     await Task.Delay(1500);
-                    await managePostView.WindowsManageStartAsync();
+                    await managePostView.ManagePostViewStartAsync();
                 }
                 else
                 {
@@ -34,7 +34,7 @@ public class DeletePostView(
                     var responseToExit = Console.ReadLine();
                     if (responseToExit != null && responseToExit.Equals("exit", StringComparison.OrdinalIgnoreCase))
                     {
-                        await managePostView.WindowsManageStartAsync();
+                        await managePostView.ManagePostViewStartAsync();
                     }
 
                     if (responseToExit != null && responseToExit.Equals("y", StringComparison.OrdinalIgnoreCase))

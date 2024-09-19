@@ -46,7 +46,7 @@ public class SpecificPostView(
             var response = Console.ReadLine();
             if (response != null && response.Equals("exit", StringComparison.OrdinalIgnoreCase))
             {
-                await managePostView.WindowsManageStartAsync();
+                await managePostView.ManagePostViewStartAsync();
             }
         }
     }

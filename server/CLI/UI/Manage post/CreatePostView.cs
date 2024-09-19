@@ -33,7 +33,7 @@ public class CreatePostView(
             Console.WriteLine("Your post details:" + post.ToString());
             Console.WriteLine();
             Thread.Sleep(1500);
-            await managePostView.WindowsManageStartAsync();
+            await managePostView.ManagePostViewStartAsync();
         }
         else
         {

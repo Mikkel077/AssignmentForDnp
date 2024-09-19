@@ -31,7 +31,7 @@ public class AddCommentToPostView(
 
                     Console.WriteLine("Comment added");
                     await Task.Delay(1000);
-                    await managePostView.WindowsManageStartAsync();
+                    await managePostView.ManagePostViewStartAsync();
                 }
                 else
                 {

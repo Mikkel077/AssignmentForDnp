@@ -1,4 +1,5 @@
 ﻿using CLI.UI.Manage_post;
+using CLI.UI.Manage_user;
 using RepositoryContracts;
 
 namespace CLI.UI;
@@ -9,6 +10,7 @@ public class CliApp(
     IUserRepository userRepository)
 {
     private readonly ManagePostView _managePostView = new ManagePostView(postRepository, commentRepository);
+    private readonly ManageUserView _manageUserView = new ManageUserView(userRepository);
 
 
     public async Task StartAppAsync()
@@ -27,7 +29,7 @@ public class CliApp(
         var respons = Console.ReadLine()?.ToLower();
         if (respons is "user")
         {
-            //Do something
+            await _manageUserView.ManageUserViewStartAsync();
         }
         else if (respons is "comment")
         {
@@ -35,7 +37,7 @@ public class CliApp(
         }
         else if (respons is "post")
         {
-            await _managePostView.WindowsManageStartAsync();
+            await _managePostView.ManagePostViewStartAsync();
         }
     }
 }

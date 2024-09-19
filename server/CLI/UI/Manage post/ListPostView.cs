@@ -25,7 +25,7 @@ public class ListPostView(
             var response = Console.ReadLine()?.ToLower();
             if (response != null && response.Equals("exit", StringComparison.OrdinalIgnoreCase))
             {
-                await managePostView.WindowsManageStartAsync();
+                await managePostView.ManagePostViewStartAsync();
                 break;
             }
         }

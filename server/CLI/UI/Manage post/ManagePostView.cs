@@ -22,7 +22,7 @@ public class ManagePostView()
     }
 
 
-    public async Task WindowsManageStartAsync()
+    public async Task ManagePostViewStartAsync()
     {
         var run = true;
         while (run)
