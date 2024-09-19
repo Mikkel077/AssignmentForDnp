@@ -70,6 +70,13 @@ public class PostInMemoryRepository : IPostRepository
         return posts.AsQueryable();
     }
 
+    public Task<bool> CheckIfPostExistsAsync(int id)
+    {
+        bool postExists = posts.Any(p => p.Id == id);
+        return Task.FromResult(postExists);
+    }
+
+
     public void createData()
     {
         Post post1 = new Post(1, "Comment", "Hi!!", 1);

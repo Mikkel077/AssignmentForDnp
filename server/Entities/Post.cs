@@ -3,7 +3,7 @@ namespace Entities;
 public class Post
 {
         public int Id { get; set; }
-        public string Title { get; set; }
+        public string? Title { get; set; }
         public string Body { get; set; }
         public int UserId { get; set; }
 
@@ -17,6 +17,6 @@ public class Post
 
         public override string ToString()
         {
-                return "Post title: " + Title + ", body: " + Body;
+                return "Post id: " + Id + " Post title: " + Title + " body: " + Body;
         }
 }

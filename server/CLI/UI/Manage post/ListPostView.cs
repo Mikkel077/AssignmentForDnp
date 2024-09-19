@@ -11,6 +11,7 @@ public class ListPostView(
     {
         while (true)
         {
+            Console.Clear();
             Console.WriteLine("Here is the list of all posts: ");
             Console.WriteLine();
             IQueryable<Post> listOfPosts = postRepository.GetManyAsync();

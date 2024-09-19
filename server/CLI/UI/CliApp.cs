@@ -8,7 +8,7 @@ public class CliApp(
     IPostRepository postRepository,
     IUserRepository userRepository)
 {
-    private readonly ManagePostView _managePostView = new ManagePostView(postRepository);
+    private readonly ManagePostView _managePostView = new ManagePostView(postRepository, commentRepository);
 
 
     public async Task StartAppAsync()
@@ -20,6 +20,10 @@ public class CliApp(
     private async Task OpenInitialWindows()
     {
         Console.WriteLine("What entity would you like to work on");
+        Console.WriteLine("Type the entity you would like to work on");
+        Console.WriteLine("1. User");
+        Console.WriteLine("2. Comment");
+        Console.WriteLine("3. Post");
         var respons = Console.ReadLine()?.ToLower();
         if (respons is "user")
         {
