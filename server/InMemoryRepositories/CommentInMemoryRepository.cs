@@ -71,15 +71,27 @@ public class CommentInMemoryRepository : ICommentRepository
         return comments.AsQueryable();
     }
 
+    public Task<IQueryable<Comment>> FindCommentsForPostAsync(int id)
+    {
+        var result = comments.Where(comment => comment.PostID == id).AsQueryable();
+        return Task.FromResult(result);
+    }
+
+    
+
     public void createData()
     {
         Comment comment1 = new Comment(1, "Hi!!!", 1, 1);
+        Comment comment11 = new Comment(4, "Test", 1, 1);
+        Comment comment111 = new Comment(5, "Test123", 1, 1);
         Comment comment2 = new Comment(2, "Hi!!!", 2, 2);
         Comment comment3 = new Comment(3, "Hi!!!", 3, 3);
         
         comments.Add(comment1);
         comments.Add(comment2);
         comments.Add(comment3);
+        comments.Add(comment11);
+        comments.Add(comment111);
         
     }
     

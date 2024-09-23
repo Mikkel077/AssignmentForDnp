@@ -10,7 +10,6 @@ public class PostInMemoryRepository : IPostRepository
     public PostInMemoryRepository()
     {
         this.posts = new List<Post>();
-
         createData();
     }
 
@@ -71,11 +70,18 @@ public class PostInMemoryRepository : IPostRepository
         return posts.AsQueryable();
     }
 
+    public Task<bool> CheckIfPostExistsAsync(int id)
+    {
+        bool postExists = posts.Any(p => p.Id == id);
+        return Task.FromResult(postExists);
+    }
+
+
     public void createData()
     {
         Post post1 = new Post(1, "Comment", "Hi!!", 1);
-        Post post2 = new Post(2, "Comment", "Hi!!", 2);
-        Post post3 = new Post(3, "Comment", "Hi!!", 3);
+        Post post2 = new Post(2, "Idk", "Hi!!!!!!", 2);
+        Post post3 = new Post(3, "idc", "HiHi!!", 3);
 
         posts.Add(post1);
         posts.Add(post2);

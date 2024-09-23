@@ -9,4 +9,5 @@ public interface IPostRepository
     Task DeleteAsync(int id);
     Task<Post> GetSingleAsync(int id);
     IQueryable<Post> GetManyAsync();
+    public Task<bool> CheckIfPostExistsAsync(int id);
 }
