@@ -11,7 +11,7 @@ public class UserInMemoryRepository : IUserRepository
     {
         this.users = new List<User>();
 
-        createData();
+      
     }
 
 
@@ -71,8 +71,5 @@ public class UserInMemoryRepository : IUserRepository
     {
         return users.AsQueryable();
     }
-
-    public void createData()
-    {
-    }
+    
 }

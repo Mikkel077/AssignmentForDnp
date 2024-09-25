@@ -14,6 +14,8 @@ public class CommentFileRepository : ICommentRepository
         {
             File.WriteAllText(_filePath, "[]");
         }
+
+        CreateData();
     }
 
 
@@ -76,8 +78,8 @@ public class CommentFileRepository : ICommentRepository
 
     public IQueryable<Comment> GetManyAsync()
     {
-        string commentsAsJson = File.ReadAllTextAsync(_filePath).Result;
-        List<Comment> comments = JsonSerializer.Deserialize<List<Comment>>(commentsAsJson)!;
+        var comments = OpenJSonFileAsync().Result;
+        _ = CloseJSonFileAsync(comments);
         return comments.AsQueryable();
     }
 
@@ -100,5 +102,22 @@ public class CommentFileRepository : ICommentRepository
     {
         var commentsAsJson = JsonSerializer.Serialize(comments);
         await File.WriteAllTextAsync(_filePath, commentsAsJson);
+    }
+    private void CreateData()
+    {
+
+        var comments = OpenJSonFileAsync();
+        Comment comment1 = new Comment(1, "Hi!!!", 1, 1);
+        Comment comment11 = new Comment(4, "Test", 1, 1);
+        Comment comment111 = new Comment(5, "Test123", 1, 1);
+        Comment comment2 = new Comment(2, "Hi!!!", 2, 2);
+        Comment comment3 = new Comment(3, "Hi!!!", 3, 3);
+        List<Comment> commentstoJson = new List<Comment>();
+        commentstoJson.Add(comment1);
+        commentstoJson.Add(comment11);
+        commentstoJson.Add(comment111);
+        commentstoJson.Add(comment2);
+        commentstoJson.Add(comment3);
+        _ = CloseJSonFileAsync(commentstoJson);
     }
 }
